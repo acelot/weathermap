@@ -43,7 +43,7 @@ server {
 - Create database `weathermap`
 - Create 2 collections: `cities`, `data`
 - Create user for this database
-- Insert some cities info `cities` collection
+- Insert some cities into `cities` collection
 
 ```json
 [

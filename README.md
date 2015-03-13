@@ -2,6 +2,8 @@
 
 Simple weather application. This app using `http://pogoda.ngs.ru/json` service as data source.
 
+![weathermap](https://cloud.githubusercontent.com/assets/1065215/6632192/9652bc30-c975-11e4-8888-8a5c464a4be8.png)
+
 ## Requirements
 
 - PHP >= 5.4

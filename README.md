@@ -98,6 +98,8 @@ Schedule the data fetcher script:
 */15 * * * * curl -s http://weathermap.dev/api/fetch?token=mysupertoken
 ```
 
+Make sure that the domain `weathermap.dev` is registered in the `hosts` on the server.
+
 ## License
 
 The MIT License (MIT)

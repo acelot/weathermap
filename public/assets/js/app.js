@@ -57,12 +57,13 @@ $(document).ready(function () {
                         // Chart
                         var chartData = {
                             labels  : _.map(data, function (item) {
-                                return moment.unix(item.fetched.sec).format("H");
+                                var hour = moment.unix(item.fetched.sec).hour();
+                                return hour % 2 === 0 ? hour : "";
                             }),
                             datasets: [
                                 {
                                     label               : city.name,
-                                    fillColor           : "rgba(220,220,220,0.2)",
+                                    fillColor           : "transparent",
                                     strokeColor         : "#45956E",
                                     pointColor          : "#45956E",
                                     pointStrokeColor    : "#45956E",
@@ -75,8 +76,10 @@ $(document).ready(function () {
 
                         var ctx = _.first($("#chart_" + city._id)).getContext("2d");
                         new Chart(ctx).Line(chartData, {
-                            tooltipFillColor: "#808080",
-                            tooltipTemplate : "<%if (label){%><%=label%> ч. <%}%><%= value %> C"
+                            tooltipFillColor       : "#808080",
+                            tooltipTemplate        : "<%= value %> C",
+                            pointDotRadius         : 3,
+                            pointHitDetectionRadius: 4
                         });
                     });
                 })

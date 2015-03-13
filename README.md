@@ -6,7 +6,7 @@ Simple weather application. This app using `http://pogoda.ngs.ru/json` service a
 
 - PHP >= 5.4
 - MongoDB and PHP extension
-- Curl (for data fetcher)
+- curl (server package)
 - Composer
 - Bower
 
@@ -15,9 +15,9 @@ Simple weather application. This app using `http://pogoda.ngs.ru/json` service a
 - Clone this repo
 - Configure nginx
 - Configure MongoDB
-- Configure cron
 - Configure app
-- Install dependencies via `composer install` and `bower install`
+- Install dependencies
+- Configure cron
 
 ## Nginx
 
@@ -38,6 +38,19 @@ server {
 
 ## MongoDB
 
+- Create database `weathermap`
+- Create 2 collections: `cities`, `data`
+- Create user for this database
+- Insert some cities info `cities` collection
+
+```json
+[
+    { "_id" : "barnaul", "name" : "Барнаул",     "coords" : [ 53.3457, 83.7786 ] }
+    { "_id" : "krsk",    "name" : "Красноярск",  "coords" : [ 56.0258, 92.9745 ] }
+    { "_id" : "nsk",     "name" : "Новосибирск", "coords" : [ 55.0269, 82.9253 ] }
+    { "_id" : "tomsk",   "name" : "Томск",       "coords" : [ 56.4872, 84.9553 ] }
+]
+```
 
 ## App
 
@@ -66,12 +79,21 @@ Create `/clone/path/var/config/debug.php` config file:
 );
 ```
 
+## Dependencies
+
+Run following commands in `/clone/path` directory:
+
+```shell
+composer install
+bower install
+```
+
 ## Cron
 
 Schedule the data fetcher script:
 
 ```cron
-*/15 * * * *    curl -s http://weathermap.dev/api/fetch?token=mysupertoken
+*/15 * * * * curl -s http://weathermap.dev/api/fetch?token=mysupertoken
 ```
 
 ## License

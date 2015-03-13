@@ -1,0 +1,8 @@
+{
+  "name": "acelot/weathermap",
+  "require": {
+    "monolog/monolog": "^1.0",
+    "silex/silex": "^1.0",
+    "twig/twig": "^1.0"
+  }
+}

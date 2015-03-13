@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Погода в городах Сибири</title>
+    <link href="/vendor/normalize.css/normalize.css" rel="stylesheet">
+    <link href="/vendor/leaflet/dist/leaflet.css" rel="stylesheet">
+    <link href="/vendor/weather-icons/css/weather-icons.min.css" rel="stylesheet">
+    <link href="/assets/css/app.css" rel="stylesheet">
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/vendor/underscore/underscore-min.js"></script>
+    <script src="/vendor/leaflet/dist/leaflet.js"></script>
+    <script src="/vendor/moment/min/moment.min.js"></script>
+    <script src="/vendor/moment/locale/ru.js"></script>
+    <script src="/vendor/chartjs/Chart.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script id="popup_loading_template" type="text/plain">
+        <div class="weather-popup-loading">
+            <span class="wi wi-wind-default wi-spin"></span>
+            <p>Смотрим в окно...</p>
+        </div>
+    </script>
+    <script id="popup_template" type="text/plain">
+        <div class="weather-popup">
+            <h2><%= city.name %></h2>
+            <div class="weather-popup-temp"><span class="wi wi-thermometer"></span> <%= _.first(data).temp %> <span class="wi wi-celsius"></span></div>
+            <p class="weather-popup-updated">Обновлено <%= updated %></p>
+            <label>График температуры за последние 24 часа</label>
+            <canvas id="chart_<%= city._id %>"></canvas>
+        </div>
+    </script>
+</body>
+</html>

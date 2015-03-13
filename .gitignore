@@ -1,0 +1,21 @@
+# IDEA directory
+/.idea
+
+# NPM
+/node_modules
+
+# Composer
+/vendor
+
+# Bower
+/public/vendor
+
+# Var directory
+/var
+
+# Misc
+*.lock
+*.log
+
+# Preserve
+!.gitkeep
